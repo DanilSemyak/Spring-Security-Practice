@@ -8,13 +8,23 @@ import org.springframework.data.annotation.Id;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique = true)
     private String name;
     private String password;
     private String role;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
